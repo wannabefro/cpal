@@ -44,6 +44,7 @@ parking_lot = "0.12"
 
 [target.'cfg(target_os = "macos")'.dependencies]
 coreaudio-rs = { version = "0.11", default-features = false, features = ["audio_unit", "core_audio"] }
+jack = { version = "0.11", optional = true }
 
 [target.'cfg(target_os = "ios")'.dependencies]
 coreaudio-rs = { version = "0.11", default-features = false, features = ["audio_unit", "core_audio", "audio_toolbox"] }
