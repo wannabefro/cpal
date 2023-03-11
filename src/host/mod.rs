@@ -17,7 +17,7 @@ pub(crate) mod emscripten;
         target_os = "dragonfly",
         target_os = "freebsd",
         target_os = "netbsd",
-        target_os = "mac"
+        target_os = "macos"
     ),
     feature = "jack"
 ))]
