@@ -604,8 +604,14 @@ mod platform_impl {
         Stream as CoreAudioStream, SupportedInputConfigs as CoreAudioSupportedInputConfigs,
         SupportedOutputConfigs as CoreAudioSupportedOutputConfigs,
     };
+    #[cfg(feature = "jack")]
+    pub use crate::host::jack::{
+        Device as JackDevice, Devices as JackDevices, Host as JackHost, Stream as JackStream,
+        SupportedInputConfigs as JackSupportedInputConfigs,
+        SupportedOutputConfigs as JackSupportedOutputConfigs,
+    };
 
-    impl_platform_host!(CoreAudio coreaudio "CoreAudio");
+    impl_platform_host!(#[cfg(feature = "jack")] Jack jack "JACK", CoreAudio coreaudio "CoreAudio");
 
     /// The default host for the current compilation target platform.
     pub fn default_host() -> Host {
